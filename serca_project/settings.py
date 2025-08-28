@@ -19,7 +19,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = True
 # DEBUG = os.getenv('DEBUG', 'False').lower() in ('true', '1', 't')
 
-ALLOWED_HOSTS = ['*'] # Update this with your allowed hosts in production
+ALLOWED_HOSTS = ['web-production-4d2f.up.railway.app','localhost'] # '*' Update this with your allowed hosts in production
 
 
 # Application definition
