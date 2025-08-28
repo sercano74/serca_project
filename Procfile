@@ -1,0 +1,1 @@
+web: gunicorn serca_project.wsgi --log-file -

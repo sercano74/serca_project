@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Blog - SERCA{% endblock %}
+
+{% block content %}
+<h1>Nuestro Blog</h1>
+{% for post in posts %}
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">{{ post.title }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Por {{ post.author }} el {{ post.created_at|date:"d/m/Y" }}</h6>
+            <p class="card-text">{{ post.content|truncatewords:30 }}</p>
+            <a href="{% url 'post_detail' post.pk %}" class="card-link">Leer más</a>
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}

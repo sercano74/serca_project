@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post.title }} - SERCA{% endblock %}
+
+{% block content %}
+<h1>{{ post.title }}</h1>
+<h6 class="text-muted">Por {{ post.author }} el {{ post.created_at|date:"d/m/Y" }}</h6>
+<hr>
+<p>{{ post.content }}</p>
+{% endblock %}

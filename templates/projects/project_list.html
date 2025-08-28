@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Nuestras Obras - SERCA{% endblock %}
+
+{% block content %}
+<h1>Nuestras Obras</h1>
+<div class="row">
+    {% for project in projects %}
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <img src="{{ project.image.url }}" class="card-img-top" alt="{{ project.title }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ project.title }}</h5>
+                <p class="card-text">{{ project.description|truncatewords:20 }}</p>
+                <a href="{% url 'project_detail' project.pk %}" class="btn btn-primary">Ver más</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
