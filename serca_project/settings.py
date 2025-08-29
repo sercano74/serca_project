@@ -1,4 +1,27 @@
+# ==================================================
+# ====================  ACCESO =====================
+# ==================================================
+# En CMD entrar al:
+#* venv\scripts\activate
+#* python manage.py runserver
+# ==================================================
+# usuario   : admin
+# kw        : 123
+# email     :
+# ==================================================
+# usuario   : sercano
+# kw        : 123
+# email     :
+# rol       : Gerencia
+# ==================================================
+
+# Limpia la caché de Django: En algunos casos, puede ser útil limpiar la caché de Django:
+#* python manage.py clean_pyc.
+# Este comando verifica la configuración de tu proyecto y te mostrará cualquier error o advertencia.
+#* python manage.py check
+
 import os
+import dj_database_url
 from pathlib import Path
 from dotenv import load_dotenv
 
@@ -21,7 +44,8 @@ DEBUG = os.getenv('DEBUG', 'False').lower() in ('true', '1', 't')
 
 ALLOWED_HOSTS = ['web-production-4d2f.up.railway.app','localhost'] # '*' Update this with your allowed hosts in production
 
-CSRF_TRUSTED_ORIGINS = ['https://web-production-4d2f.up.railway.app','http://web-production-4d2f.up.railway.app'] # Update this with your trusted origins in production
+CSRF_TRUSTED_ORIGINS = ['https://web-production-4d2f.up.railway.app','http://web-production-4d2f.up.railway.app','http://*'] # Update this with your trusted origins in production
+
 
 # Application definition
 
@@ -62,8 +86,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware', # Allauth
-    'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware', # Whitenoise
 
 ]
 
@@ -91,11 +113,15 @@ WSGI_APPLICATION = 'serca_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
 
 
@@ -146,3 +172,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' '''ESTO ES PARA UN SERVIDOR DE PRUEBA'''
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'ordered.dev.01@gmail.com'
+EMAIL_HOST_PASSWORD = 'bedwoujjjskxbvod'
