@@ -21,6 +21,7 @@ DEBUG = os.getenv('DEBUG', 'False').lower() in ('true', '1', 't')
 
 ALLOWED_HOSTS = ['web-production-4d2f.up.railway.app','localhost'] # '*' Update this with your allowed hosts in production
 
+CSRF_TRUSTED_ORIGINS = ['https://web-production-4d2f.up.railway.app','http://web-production-4d2f.up.railway.app'] # Update this with your trusted origins in production
 
 # Application definition
 
