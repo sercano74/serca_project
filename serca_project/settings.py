@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     'core',
     'projects',
     'A90_blog',
+    'contact',
 
     # Allauth
     'allauth',
