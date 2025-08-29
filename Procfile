@@ -1,1 +1,1 @@
-web: python manage.py collectstatic && gunicorn serca_project.wsgi --log-file -
+web: python manage.py collectstatic && gunicorn serca_project.wsgi
