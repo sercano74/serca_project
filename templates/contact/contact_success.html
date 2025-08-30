@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Contacto Exitoso{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <h1 class="display-4 text-success">Â¡Solicitud Enviada con Ã‰xito!</h1>
+            <p class="lead">Gracias por contactarnos. Nos pondremos en contacto contigo a la brevedad.</p>
+            <hr>
+            <p>
+                Puedes volver a la <a href="{% url 'core:home' %}">pÃ¡gina de inicio</a>.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}
