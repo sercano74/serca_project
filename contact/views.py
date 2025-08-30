@@ -18,7 +18,7 @@ def contact_request(request):
             if form.is_valid():
                 Contact.objects.create(
                     email=form.cleaned_data['email'],
-                    message="Solicitud de contacto de usuario anÃ³nimo."
+                    message="Solicitud de contacto de usuario anonimo."
                 )
                 return redirect('contact:contact_success')
         else:
