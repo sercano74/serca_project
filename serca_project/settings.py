@@ -40,7 +40,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-DEBUG = True # Temporarily set to True for debugging. REMEMBER TO REVERT THIS!
+DEBUG = os.getenv('DEBUG', 'False').lower() in ('true', '1', 't')
 
 ALLOWED_HOSTS = ['web-production-4d2f.up.railway.app','localhost', 'www.serca.online', 'serca.online'] # '*' Update this with your allowed hosts in production
 
