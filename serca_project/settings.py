@@ -32,6 +32,20 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+#Configuración Cloudinary
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+# Configura Cloudinary con las variables de entorno - Django integration
+cloudinary.config(
+    cloud_name = os.getenv('CLOUDINARY_CLOUD_NAME'),
+    api_key = os.getenv('CLOUDINARY_API_KEY'),
+    api_secret = os.getenv('CLOUDINARY_API_SECRET')
+)
+
+
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
@@ -70,6 +84,11 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+
+    #Cloudinary
+    'cloudinary',
+    'cloudinary_storage',
+
 ]
 
 # Configuración para Allauth
@@ -157,14 +176,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_URL = 'static/' # URL para archivos estáticos
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # Directorio para archivos estáticos en producción
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')] # Directorios adicionales para archivos estáticos
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' # Whitenoise
 
 # Media files (User uploaded files)
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/' # URL para archivos multimedia
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # Directorio para archivos multimedia
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

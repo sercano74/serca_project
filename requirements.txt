@@ -1,4 +1,6 @@
 asgiref==3.9.1
+certifi==2025.8.3
+cloudinary==1.44.1
 dj-database-url==3.0.1
 Django==5.2.5
 django-allauth==65.11.0
@@ -7,6 +9,8 @@ packaging==25.0
 pillow==11.3.0
 psycopg2==2.9.10
 python-dotenv==1.1.1
+six==1.17.0
 sqlparse==0.5.3
 tzdata==2025.2
+urllib3==2.5.0
 whitenoise==6.9.0
