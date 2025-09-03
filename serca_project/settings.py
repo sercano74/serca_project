@@ -43,8 +43,18 @@ cloudinary.config(
     api_secret = os.getenv('CLOUDINARY_API_SECRET'),   
 )
 
+# --- INICIO: CÓDIGO DE DEPURACIÓN TEMPORAL ---
+print("\n--- CLOUDINARY DEBUG ---")
+print(f"Cloud Name: {os.getenv('CLOUDINARY_CLOUD_NAME')}")
+print(f"API Key: {os.getenv('CLOUDINARY_API_KEY')}")
+api_secret = os.getenv('CLOUDINARY_API_SECRET', '')
+print(f"API Secret (primeros 5 chars): {api_secret[:5]}\n")
+# --- FIN: CÓDIGO DE DEPURACIÓN TEMPORAL ---
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
+
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY')
@@ -53,7 +63,8 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # DEBUG = True
 DEBUG = os.getenv('DEBUG', 'False').lower() in ('true', '1', 't')
 
-ALLOWED_HOSTS = ['web-production-4d2f.up.railway.app','localhost', 'www.serca.online', 'serca.online'] # '*' Update this with your allowed hosts in production
+
+ALLOWED_HOSTS = ['web-production-4d2f.up.railway.app','localhost', '127.0.0.1', 'www.serca.online', 'serca.online'] # '*' Update this with your allowed hosts in production
 
 CSRF_TRUSTED_ORIGINS = ['https://web-production-4d2f.up.railway.app','http://web-production-4d2f.up.railway.app','http://*', 'https://www.serca.online', 'https://serca.online'] # Update this with your trusted origins in production
 
