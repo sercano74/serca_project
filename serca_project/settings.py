@@ -48,7 +48,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-DEBUG = os.getenv('DEBUG', 'False').lower() in ('true', '1', 't')
+DEBUG = os.getenv('DEBUG', 'False').lower() in ('true', '1', 't') # Cambiar a False en producción
 
 
 ALLOWED_HOSTS = ['web-production-4d2f.up.railway.app','localhost', '127.0.0.1', 'www.serca.online', 'serca.online'] # '*' Update this with your allowed hosts in production
@@ -178,10 +178,9 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' 
 
 # Media files (User uploaded files)
 MEDIA_URL = '/media/' # URL para archivos multimedia
-if DEBUG == False:
-    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-else:
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # Directorio para archivos multimedia
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # Directorio para archivos multimedia
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 
 # Configura Cloudinary con las variables de entorno - Django integration
 CLOUDINARY_STORAGE={
