@@ -177,25 +177,16 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')] # Directorios adicionales 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' # Whitenoise
 
 # Media files (User uploaded files)
-MEDIA_URL = '/media/' # URL para archivos multimedia
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # Directorio para archivos multimedia
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-
-# Configura Cloudinary con las variables de entorno - Django integration
-CLOUDINARY_STORAGE={
-    'CLOUDINARY_CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),
-    'CLOUDINARY_API_KEY'   : os.getenv('CLOUDINARY_API_KEY'),
-    'CLOUDINARY_API_SECRET': os.getenv('CLOUDINARY_API_SECRET'),
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': os.getenv('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.getenv('CLOUDINARY_API_SECRET'),
 }
-
-# --- INICIO: CÓDIGO DE DEPURACIÓN TEMPORAL ---
-print("\n--- CLOUDINARY DEBUG ---")
-print(f"Cloud Name  : {os.getenv('CLOUDINARY_CLOUD_NAME')}")
-print(f"API Key     : {os.getenv('CLOUDINARY_API_KEY')}")
-api_secret = os.getenv('CLOUDINARY_API_SECRET', '')
-print(f"API Secret (primeros 5 chars): {api_secret[:5]}\n")
-# --- FIN: CÓDIGO DE DEPURACIÓN TEMPORAL ---
 
 
 # Default primary key field type
