@@ -36,20 +36,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
-# Configura Cloudinary con las variables de entorno - Django integration
-cloudinary.config(
-    cloud_name = os.getenv('CLOUDINARY_CLOUD_NAME'),
-    api_key = os.getenv('CLOUDINARY_API_KEY'),
-    api_secret = os.getenv('CLOUDINARY_API_SECRET'),   
-)
 
-# --- INICIO: CÓDIGO DE DEPURACIÓN TEMPORAL ---
-print("\n--- CLOUDINARY DEBUG ---")
-print(f"Cloud Name: {os.getenv('CLOUDINARY_CLOUD_NAME')}")
-print(f"API Key: {os.getenv('CLOUDINARY_API_KEY')}")
-api_secret = os.getenv('CLOUDINARY_API_SECRET', '')
-print(f"API Secret (primeros 5 chars): {api_secret[:5]}\n")
-# --- FIN: CÓDIGO DE DEPURACIÓN TEMPORAL ---
 
 
 # Quick-start development settings - unsuitable for production
@@ -77,8 +64,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'cloudinary_storage',
     'django.contrib.staticfiles',
+    #Cloudinary
+    'cloudinary_storage',
+    'cloudinary',
     'django.contrib.sites',
     'whitenoise.runserver_nostatic', # Whitenoise
     # TODO 'django.contrib.humanize', # Formateo de números
@@ -94,8 +83,6 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
 
-    #Cloudinary
-    'cloudinary',
 
 ]
 
@@ -191,8 +178,26 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' 
 
 # Media files (User uploaded files)
 MEDIA_URL = '/media/' # URL para archivos multimedia
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # Directorio para archivos multimedia
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+if DEBUG == False:
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+else:
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # Directorio para archivos multimedia
+
+# Configura Cloudinary con las variables de entorno - Django integration
+CLOUDINARY_STORAGE={
+    'CLOUDINARY_CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),
+    'CLOUDINARY_API_KEY'   : os.getenv('CLOUDINARY_API_KEY'),
+    'CLOUDINARY_API_SECRET': os.getenv('CLOUDINARY_API_SECRET'),
+}
+
+# --- INICIO: CÓDIGO DE DEPURACIÓN TEMPORAL ---
+print("\n--- CLOUDINARY DEBUG ---")
+print(f"Cloud Name  : {os.getenv('CLOUDINARY_CLOUD_NAME')}")
+print(f"API Key     : {os.getenv('CLOUDINARY_API_KEY')}")
+api_secret = os.getenv('CLOUDINARY_API_SECRET', '')
+print(f"API Secret (primeros 5 chars): {api_secret[:5]}\n")
+# --- FIN: CÓDIGO DE DEPURACIÓN TEMPORAL ---
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
