@@ -23,9 +23,9 @@
 import os
 import dj_database_url
 from pathlib import Path
-from dotenv import load_dotenv
 
 # Carga las variables de entorno desde el archivo .env
+from dotenv import load_dotenv
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -40,12 +40,8 @@ import cloudinary.api
 cloudinary.config(
     cloud_name = os.getenv('CLOUDINARY_CLOUD_NAME'),
     api_key = os.getenv('CLOUDINARY_API_KEY'),
-    api_secret = os.getenv('CLOUDINARY_API_SECRET')
-    
+    api_secret = os.getenv('CLOUDINARY_API_SECRET'),   
 )
-
-
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
