@@ -41,6 +41,7 @@ cloudinary.config(
     cloud_name = os.getenv('CLOUDINARY_CLOUD_NAME'),
     api_key = os.getenv('CLOUDINARY_API_KEY'),
     api_secret = os.getenv('CLOUDINARY_API_SECRET')
+    
 )
 
 
@@ -69,6 +70,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'whitenoise.runserver_nostatic', # Whitenoise
@@ -87,7 +89,6 @@ INSTALLED_APPS = [
 
     #Cloudinary
     'cloudinary',
-    'cloudinary_storage',
 
 ]
 
@@ -184,6 +185,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' 
 # Media files (User uploaded files)
 MEDIA_URL = '/media/' # URL para archivos multimedia
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # Directorio para archivos multimedia
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
