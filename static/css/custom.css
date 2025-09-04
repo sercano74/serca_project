@@ -1,0 +1,52 @@
+/* core/static/css/custom.css */
+
+/* Color azul oscuro del logo */
+:root {
+    --serca-dark-blue: #1b3d5b; /* Ajusta este color si es necesario */
+    --serca-orange: #f28b00;    /* Ajusta este color si es necesario */
+}
+
+/* Estilo para el navbar */
+.navbar.navbar-light.bg-light {
+    background-color: var(--serca-dark-blue) !important; /* Fondo del navbar */
+    border-bottom: 3px solid var(--serca-orange); /* Borde inferior para destacar */
+}
+
+/* Estilo para los enlaces del navbar */
+.navbar-nav .nav-link {
+    color: white !important; /* Texto blanco para contraste */
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--serca-orange) !important; /* Color naranja al pasar el ratón o estar activo */
+}
+
+/* Estilo para el botón del toggler en móviles */
+.navbar-toggler {
+    border-color: var(--serca-orange); /* Borde naranja para el botón */
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23f28b00' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important; /* Icono del toggler naranja */
+}
+
+/* Estilo para el texto del dropdown de usuario (si es necesario) */
+.navbar-nav .dropdown-menu {
+    background-color: var(--serca-dark-blue); /* Fondo del menú desplegable */
+    border: none;
+}
+
+.navbar-nav .dropdown-item {
+    color: white !important;
+}
+
+.navbar-nav .dropdown-item:hover {
+    background-color: var(--serca-orange) !important;
+    color: var(--serca-dark-blue) !important;
+}
+
+.navbar-nav .dropdown-divider {
+    border-top-color: rgba(255, 255, 255, 0.2);
+}
