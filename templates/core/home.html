@@ -3,82 +3,106 @@
 {% block title %}Inicio - SERCA{% endblock %}
 
 {% block content %}
-<style>
-    .whatsapp-button {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background-color: #25D366;
-        color: white;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        text-align: center;
-        font-size: 30px;
-        box-shadow: 2px 2px 3px #999;
-        z-index: 100;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .whatsapp-button:hover {
-        background-color: #1EBE57;
-        color: white;
-    }
-</style>
-
 <div class="p-5 mb-2 bg-light rounded-3">
     <div class="container-fluid py-3">
         <h1 class="display-5 fw-bold">SERCA Ingeniería, Construcción y Montajes</h1>
-        <p class="col-md-8 fs-4">Damos solución a tus necesidades. Trabajamos día a día creando valor para tu empresa y entorno.</p>
-        <a href="{% url 'contact:contact_request' %}" class="btn btn-primary btn-lg">Contáctanos !!</a>
+        <p class="col-md-8 fs-4">Trabajamos día a día creando valor.</p>
+        <a href="{% url 'contact:contact_request' %}" class="btn btn-custom-dark-blue btn-lg">Contáctanos !!</a>
     </div>
 </div>
 
 <div class="container">
-    <div class="row text-center">
-        <div class="col-md-4 mb-4">
-            <div class="card h-100">
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title">Proyectos de ingeniería industriales y habitacionales</h5>
-                    <a href="#" class="btn btn-custom-orange mt-auto">Ver más</a>
+    <h2 class="text-center my-4">Nuestros Servicios</h2>
+    <div class="row">
+        <!-- Servicio 1 -->
+        <div class="col-lg-6 mb-4">
+            <a href="#" class="card-link-wrapper">
+                <div class="card border card-border-orange h-100">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="https://res.cloudinary.com/dtcskupwr/image/upload/v1757125757/SERCA/proyecto001_fohjxs.png" class="service-card-img rounded-start" alt="Servicio de Ingeniería">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Proyectos de ingeniería industriales y habitacionales</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
-        <div class="col-md-4 mb-4">
-            <div class="card h-100">
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title">Construcciones y Remodelaciones</h5>
-                    <a href="#" class="btn btn-custom-orange mt-auto">Ver más</a>
+        <!-- Servicio 2 -->
+        <div class="col-lg-6 mb-4">
+            <a href="#" class="card-link-wrapper">
+                <div class="card border card-border-orange h-100">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="https://res.cloudinary.com/dtcskupwr/image/upload/v1757126999/SERCA/home-1680800_1280_a2pugg.jpg" class="service-card-img rounded-start" alt="Servicio de Construcción">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Construcciones y Remodelaciones</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
-        <div class="col-md-4 mb-4">
-            <div class="card h-100">
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title">Control e Inspecciones de Obras</h5>
-                    <a href="#" class="btn btn-custom-orange mt-auto">Ver más</a>
+        <!-- Servicio 3 -->
+        <div class="col-lg-6 mb-4">
+            <a href="#" class="card-link-wrapper">
+                <div class="card border card-border-orange h-100">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="https://res.cloudinary.com/dtcskupwr/image/upload/v1757125741/SERCA/controlproject001_niqo7x.png" class="service-card-img rounded-start" alt="Servicio de Inspección">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Control e Inspecciones de Obras</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
-    </div>
-    <div class="row text-center justify-content-center">
-        <div class="col-md-4 mb-4">
-            <div class="card h-100">
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title">Servicio 4</h5>
-                    <a href="#" class="btn btn-custom-orange mt-auto">Ver más</a>
+        <!-- Servicio 4 -->
+        <div class="col-lg-6 mb-4">
+            <a href="#" class="card-link-wrapper">
+                <div class="card border card-border-orange h-100">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="https://res.cloudinary.com/dtcskupwr/image/upload/v1757126559/SERCA/fontanero_reparando_136989450_vbwme0.jpg" class="service-card-img rounded-start" alt="Servicio 4">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Emergencias Sanitarias</h5>
+                                <p class="card-text">Atendemos todo tipo de emergencias sanitarias como filtraciones.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
-        <div class="col-md-4 mb-4">
-            <div class="card h-100">
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title">Servicio 5</h5>
-                    <a href="#" class="btn btn-custom-orange mt-auto">Ver más</a>
+        <!-- Servicio 5 -->
+        <div class="col-lg-6 mb-4">
+            <a href="#" class="card-link-wrapper">
+                <div class="card border card-border-orange">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="https://res.cloudinary.com/dtcskupwr/image/upload/v1757126690/SERCA/Emergencia-electrica-IMG_Elecampa_q5uyay.jpg" class="service-card-img rounded-start" alt="Servicio 5">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Emergencias Eléctricas</h5>
+                                <p class="card-text">Unidad certificada que atiende todo tipo de trabajos de electricidad.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
 </div>
