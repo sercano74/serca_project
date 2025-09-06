@@ -8,6 +8,9 @@
         <h1 class="display-5 fw-bold">SERCA Ingeniería, Construcción y Montajes</h1>
         <p class="col-md-8 fs-4">Trabajamos día a día creando valor.</p>
         <a href="{% url 'contact:contact_request' %}" class="btn btn-custom-dark-blue btn-lg">Contáctanos !!</a>
+        {% if user.is_superuser %}
+        <a href="{% url 'contact:contact_list' %}" class="btn btn-custom-orange btn-lg ms-2">Ver Solicitudes</a>
+        {% endif %}
     </div>
 </div>
 
