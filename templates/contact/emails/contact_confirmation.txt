@@ -1,0 +1,17 @@
+Hola {{ contact.name }},
+
+Gracias por contactar con nosotros.
+
+Hemos recibido tu requerimiento con el número de seguimiento #{{ contact.pk }} y ya lo hemos registrado en nuestro sistema.
+
+Tu solicitud se encuentra en estado 'Ingresado' y pronto pasará a 'En Revisión' por nuestro equipo.
+
+Nos pondremos en contacto contigo a la brevedad.
+
+Resumen de tu solicitud:
+--------------------------
+{{ contact.message }}
+--------------------------
+
+Atentamente,
+El equipo de SERCA

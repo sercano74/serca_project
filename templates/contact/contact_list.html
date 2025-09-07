@@ -32,10 +32,11 @@
                 <thead>
                     <tr>
                         <th>Email</th>
-                        <th>TelÃ©fono</th>
+                        <th>Teléfono</th>
                         <th>Mensaje</th>
                         <th>Fecha</th>
                         <th>Estado</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,7 +46,11 @@
                             <td>{{ contact.phone|default_if_none:"N/A" }}</td>
                             <td>{{ contact.message }}</td>
                             <td>{{ contact.created_at|date:"d M Y H:i" }}</td>
-                            <td>{{ contact.status }}</td>
+                            <td><span class="badge bg-secondary">{{ contact.get_status_display }}</span></td>
+                            <td>
+                                <a href="{% url 'contact:contact_detail' contact.pk %}" class="btn btn-info btn-sm">Ver</a>
+                            </td> 
+
                         </tr>
                     {% endfor %}
                 </tbody>
