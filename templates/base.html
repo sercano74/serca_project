@@ -23,21 +23,21 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{% url 'core:home' %}">Inicio</a>
                     </li>
-                    <li class="nav-item">
+                    {% comment %} <li class="nav-item">
                         <a class="nav-link" href="#">Nuestros <br> Valores</a>
-                    </li>
+                    </li> {% endcomment %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'project_list' %}">Obras</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'post_list' %}">Noticias</a>
                     </li>
-                    <li class="nav-item">
+                    {% comment %} <li class="nav-item">
                         <a class="nav-link" href="#">Trabaja <br>con nosotros</a>
-                    </li>
-                    <li class="nav-item">
+                    </li> {% endcomment %}
+                    {% comment %} <li class="nav-item">
                         <a class="nav-link" href="#">Proveedores</a>
-                    </li>
+                    </li> {% endcomment %}
                 </ul>
 
                 <ul class="navbar-nav">
@@ -84,7 +84,7 @@
                             <i class="fas fa-envelope me-2"></i><b><i>contacto@serca.online</i></b>
                         </li>
                         <li>
-                            <i class="fas fa-phone-alt me-2"></i><b><i>+56 9 4235 1034</i></b>
+                            <i class="fas fa-phone-alt me-2"></i><b><i>+56 9 9510 2730</i></b>
                         </li>
                     </ul>
                 </div>
@@ -95,7 +95,7 @@
                         <a href="{% url 'contact:contact_request' %}" class="btn btn-custom-orange mt-auto me-3">
                             <i class="fas fa-file-alt me-2"></i>Envíanos tu<br>requerimiento
                         </a>
-                        <a href="https://wa.me/56942351034" class="whatsapp-button-float" target="_blank">
+                        <a href="https://wa.me/56995102730" class="whatsapp-button-float" target="_blank">
                             <i class="fab fa-whatsapp me-2"></i>
                         </a>
                     </div>
