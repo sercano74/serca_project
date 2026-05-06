@@ -3,8 +3,8 @@
 {% block title %}Inicio - SERCA{% endblock %}
 
 {% block content %}
-<div class="p-5 mb-2 bg-light rounded-3">
-    <div class="container-fluid py-3">
+<div class="hero-news-banner p-5 mb-2 bg-light rounded-3 position-relative overflow-hidden">
+    <div class="container-fluid py-3 hero-news-banner__content">
         <h1 class="display-5 fw-bold">SERCA Ingeniería, Construcción y Montajes</h1>
         <p class="col-md-8 fs-4">Trabajamos día a día creando valor.</p>
         <a href="{% url 'contact:contact_request' %}" class="btn btn-custom-dark-blue btn-lg">Contáctanos !!</a>
@@ -12,6 +12,12 @@
         <a href="{% url 'contact:contact_list' %}" class="btn btn-custom-orange btn-lg ms-2">Ver Solicitudes</a>
         {% endif %}
     </div>
+
+    {% if home_news_badge %}
+    <div class="news-badge-triangle" aria-label="Noticia importante">
+        <span class="news-badge-triangle__text">{{ home_news_badge.text }}</span>
+    </div>
+    {% endif %}
 </div>
 
 <div class="container">

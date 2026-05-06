@@ -1,10 +1,8 @@
 from django.shortcuts import render
 
-# Create your views here.
-def home(request):
-    #* mlmdflmd
-    #TODO jsksdjkd
-    #! jhjhj
-    #? ggggg
+from .models import HomeNewsBadge
 
-    return render(request, 'core/home.html')
+
+def home(request):
+    badge = HomeNewsBadge.objects.filter(is_active=True).first()
+    return render(request, "core/home.html", {"home_news_badge": badge})

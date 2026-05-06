@@ -32,9 +32,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'post_list' %}">Noticias</a>
                     </li>
-                    {% comment %} <li class="nav-item">
-                        <a class="nav-link" href="#">Trabaja <br>con nosotros</a>
-                    </li> {% endcomment %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Acceso Clientes</a>
+                    </li>
                     {% comment %} <li class="nav-item">
                         <a class="nav-link" href="#">Proveedores</a>
                     </li> {% endcomment %}
@@ -57,7 +57,7 @@
                             <a class="nav-link" href="{% url 'account_login' %}">Ingresar</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'account_signup' %}">Registrarse</a>
+                            <span class="nav-link disabled text-muted opacity-50" aria-disabled="true" tabindex="-1" style="cursor: not-allowed;">Regístrese</span>
                         </li>
                     {% endif %}
                 </ul>
