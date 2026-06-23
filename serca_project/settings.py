@@ -37,6 +37,11 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
+cloudinary.config(
+    cloud_name=os.getenv('CLOUDINARY_CLOUD_NAME'),
+    api_key=os.getenv('CLOUDINARY_API_KEY'),
+    api_secret=os.getenv('CLOUDINARY_API_SECRET'),
+)
 
 
 # Quick-start development settings - unsuitable for production
@@ -65,8 +70,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #Cloudinary
-    'cloudinary_storage',
+    #Cloudinary - solo el core, NO django-cloudinary-storage
     'cloudinary',
     'django.contrib.sites',
     'whitenoise.runserver_nostatic', # Whitenoise
@@ -176,17 +180,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # Directorio para archivos e
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')] # Directorios adicionales para archivos estáticos
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' # Whitenoise
 
-# Media files (User uploaded files)
+# Media files - Se desactiva MediaCloudinaryStorage porque CloudinaryField
+# ya maneja la subida directamente. Django usará FileSystemStorage local
+# para cualquier otro archivo media, pero CloudinaryField subirá a Cloudinary.
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),
-    'API_KEY': os.getenv('CLOUDINARY_API_KEY'),
-    'API_SECRET': os.getenv('CLOUDINARY_API_SECRET'),
-}
+# DEFAULT_FILE_STORAGE ya no se define como Cloudinary - CloudinaryField maneja
+# sus propias subidas directamente a través de la API de Cloudinary.
 
 
 # Default primary key field type
@@ -201,4 +201,3 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
-
